@@ -1,0 +1,11 @@
+{
+  "name": "gql-apollo-ts",
+  "version": "0.0.1",
+  "description": "Type-safe GraphQL project with the Apollo suite and Typescript",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Dominique Chin-Jones",
+  "license": "MIT"
+}
