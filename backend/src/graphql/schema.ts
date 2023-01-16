@@ -1,4 +1,3 @@
-
 export const typeDefs = `#graphql
 type Query {
     "Get a non-null list of non-null Game objects"
