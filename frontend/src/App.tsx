@@ -31,14 +31,15 @@ export default function App() {
 
   return (
     <>
-      { data?.games.map((game: Game) => (
+      {data?.games.map((game: Game) => (
           <div>
-          <h2>Game: {game.name}</h2>
-          <p>Publisher: {game.publisher}</p>
-          <p>Release Date: {game.releaseDate}</p>
-          <p>Genre: {game.genre.categories.map((name, index, parent) => (
-               index === parent.length-1 ? <span>{name}</span> : <span>{name}, </span> 
-            ))} </p>
+            <h2>Game: {game.name}</h2>
+            <p>Publisher: {game.publisher}</p>
+            <p>Release Date: {game.releaseDate}</p>
+            <p>Genre: {game.genre.categories.map((name, index, array) => (
+                  index === array.length-1 ? <span>{name}</span> : <span>{name}, </span> 
+                ))}
+            </p>
           </div>
       ))}
     </>
