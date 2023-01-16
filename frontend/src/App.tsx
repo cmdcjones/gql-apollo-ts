@@ -4,8 +4,8 @@ interface Game {
   id: number
   name: string
   publisher: string
-  releaseDate: string
-  genre: { categories: string[] }
+  releaseDate: number
+  genres: { categories: string[] }
 }
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
       name
       publisher
       releaseDate
-      genre {
+      genres {
         categories
       }
     }
@@ -36,7 +36,7 @@ export default function App() {
             <h2>Game: {game.name}</h2>
             <p>Publisher: {game.publisher}</p>
             <p>Release Date: {game.releaseDate}</p>
-            <p>Genre: {game.genre.categories.map((name, index, array) => (
+            <p>Genres: {game.genres.categories.map((name, index, array) => (
                   index === array.length-1 ? <span>{name}</span> : <span>{name}, </span> 
                 ))}
             </p>

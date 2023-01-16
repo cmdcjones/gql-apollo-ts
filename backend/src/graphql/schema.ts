@@ -8,8 +8,8 @@ type Game {
     id: Int!
     name: String!
     publisher: String!
-    releaseDate: String!
-    genre: Genre!
+    releaseDate: Int!
+    genres: Genre!
 }
 
 type Genre {
@@ -22,8 +22,8 @@ const games = [
         id: 0,
         name: "Destiny 2",
         publisher: "Bungie",
-        releaseDate: "09/2017",
-        genre: {
+        releaseDate: 1504656000,
+        genres: {
             categories: [
                 "Looter-Shooter",
                 "First Person Shooter",
@@ -34,8 +34,8 @@ const games = [
         id: 1,
         name: "Elden Ring",
         publisher: "From Software",
-        releaseDate: "02/2022",
-        genre: {
+        releaseDate: 1645747200,
+        genres: {
             categories: [
                 "Action",
                 "Adventure",
