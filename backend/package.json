@@ -4,12 +4,13 @@
   "description": "Type-safe GraphQL project with the Apollo suite and Typescript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch \"src\/**\" --ext \"ts,json\" --ignore \"src\/**\/*.spec.ts\" --exec \"ts-node --transpile-only src/index.ts\""
+    "dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node --transpile-only src/index.ts\""
   },
   "keywords": [],
   "author": "Dominique Chin-Jones",
   "license": "MIT",
   "dependencies": {
+    "@apollo/datasource-rest": "^5.0.1",
     "@apollo/server": "^4.3.0",
     "graphql": "^16.6.0"
   },
