@@ -4,7 +4,7 @@ dotenv.config()
 
 export class GameAPI extends RESTDataSource {
     override baseURL = "https://api.igdb.com/v4/";
-    override willSendRequest(path: string, requestOpts: AugmentedRequest) {
+    override willSendRequest(_, requestOpts: AugmentedRequest) {
         requestOpts.headers["Client-ID"] = process.env.CLIENT_ID_HEADER;
         requestOpts.headers["Authorization"] = process.env.AUTHORIZATION_HEADER;
     }
@@ -14,7 +14,7 @@ export class GameAPI extends RESTDataSource {
         return this.post("games", { body: `fields *; where name="${name}";` });
     }
 
-    async getPublisher(gameId: number): Promise<any> {
-        return this.post("companies", { body: `fields name; where developed=[${gameId}];` });
+    async getPublisher(gameId: string): Promise<any> {
+        return this.post("companies", { body: `fields *; where developed=[${gameId}];` });
     }
 }

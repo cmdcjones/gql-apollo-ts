@@ -7,9 +7,7 @@ type Query {
 type Game {
     id: Int!
     name: String!
-    publisher: Publisher
-    releaseDate: Int!
-    genres: Genre!
+    publisher: [Publisher!]
 }
 
 type Genre {
