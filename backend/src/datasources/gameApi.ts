@@ -11,7 +11,10 @@ export class GameAPI extends RESTDataSource {
 
     // TODO: remove hard coding, create more 'functional' function
     async getDestiny2(name = "Destiny 2"): Promise<any> {
-        console.log(this.baseURL);
         return this.post("games", { body: `fields *; where name="${name}";` });
+    }
+
+    async getPublisher(gameId: number): Promise<any> {
+        return this.post("companies", { body: `fields name; where developed=[${gameId}];` });
     }
 }

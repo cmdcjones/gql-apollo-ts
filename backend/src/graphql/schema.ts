@@ -7,13 +7,18 @@ type Query {
 type Game {
     id: Int!
     name: String!
-    publisher: String!
+    publisher: Publisher
     releaseDate: Int!
     genres: Genre!
 }
 
 type Genre {
     categories: [String!]!
+}
+
+type Publisher {
+    id: Int
+    name: String
 }
 `
 
