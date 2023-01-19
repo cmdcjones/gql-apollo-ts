@@ -32,5 +32,6 @@ export const resolvers = {
             return dataSources.gameAPI.getDestiny2();
         },
     },
+    // Implement Game type with publisher field to resolve parent publisher field
 }
 
