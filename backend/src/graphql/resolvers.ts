@@ -7,7 +7,10 @@ export const resolvers = {
     // Implement Game type with publisher field to resolve parent publisher field
     Game: {
         publisher: ({ id }, __, { dataSources }) => {
-            return dataSources.gameAPI.getPublisher(id);
+            dataSources.gameAPI.getPublisher(id).then((response: Array<any>) => {
+                const [{ id:_, name: publisherName }] = response
+                return publisherName;
+            });
         },
     },
 }

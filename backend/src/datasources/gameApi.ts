@@ -14,7 +14,7 @@ export class GameAPI extends RESTDataSource {
         return this.post("games", { body: `fields *; where name="${name}";` });
     }
 
-    async getPublisher(gameId: string): Promise<any> {
-        return this.post("companies", { body: `fields *; where developed=[${gameId}];` });
+    async getPublisher(gameId: string): Promise<any>  {
+        return this.post("companies", { body: `fields name; where developed=[${gameId}];` });
     }
 }

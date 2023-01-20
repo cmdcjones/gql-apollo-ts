@@ -7,16 +7,12 @@ type Query {
 type Game {
     id: Int!
     name: String!
-    publisher: [Publisher!]
+    publisher: String!
 }
 
 type Genre {
     categories: [String!]!
 }
 
-type Publisher {
-    id: Int
-    name: String
-}
 `
 
