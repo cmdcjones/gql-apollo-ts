@@ -2,6 +2,10 @@
 // Useful for clean code and abstraction (more declarative)
 
 // Function for converting release data in epoch seconds to human readable date
-export function convertEpochSeconds(epochSeconds: number): void {
+const MILLISECONDS = 1000;
+
+export function convertEpochSeconds(epochSeconds: number): string {
+    const seconds = new Date(1504656000 * MILLISECONDS).toDateString();
+    return seconds;
 }
 

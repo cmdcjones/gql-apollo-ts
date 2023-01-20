@@ -8,6 +8,7 @@ type Game {
     id: Int!
     name: String!
     publisher: String!
+    releaseDate: String!
 }
 
 type Genre {

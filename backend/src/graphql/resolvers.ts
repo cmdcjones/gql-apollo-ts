@@ -1,3 +1,5 @@
+import { convertEpochSeconds } from "../utils";
+
 export const resolvers = {
     Query: {
         games: (_, __, { dataSources }) => {
@@ -7,10 +9,10 @@ export const resolvers = {
     // Implement Game type with publisher field to resolve parent publisher field
     Game: {
         publisher: ({ id }, __, { dataSources }) => {
-            dataSources.gameAPI.getPublisher(id).then((response: Array<any>) => {
-                const [{ id:_, name: publisherName }] = response
-                return publisherName;
-            });
+            return dataSources.gameAPI.getPublisher(id);
+        },
+        releaseDate: ({ first_release_date }) => {
+            return convertEpochSeconds(first_release_date);
         },
     },
 }
