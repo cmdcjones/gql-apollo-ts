@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
-import { Publisher, Game } from "./types";
+import { Game } from "./types";
+import GameDisplay from "./components/GameDisplay";
 
 export default function App() {
 
@@ -8,10 +9,7 @@ export default function App() {
     games {
       id
       name
-      publisher {
-        id
-        name
-      }
+      publisher
     }
   }
   `;
@@ -25,13 +23,7 @@ export default function App() {
     <>
       {data?.games.map((game: Game) => (
           <div>
-            <h2>Game: {game.name}</h2>
-              <p>Publisher: {game.publisher.map(publisher => publisher.name)}</p>
-              {/*<p>Release Date: {game.releaseDate}</p>
-            <p>Genres: {game.genres.categories.map((name, index, array) => (
-                  index === array.length-1 ? <span>{name}</span> : <span>{name}, </span> 
-                ))}
-            </p>*/}
+              <GameDisplay game={game} key={game.id} />
           </div>
       ))}
     </>
