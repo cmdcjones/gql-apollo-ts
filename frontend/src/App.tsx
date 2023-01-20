@@ -10,6 +10,7 @@ export default function App() {
       id
       name
       publisher
+      releaseDate
     }
   }
   `;
@@ -22,9 +23,7 @@ export default function App() {
   return (
     <>
       {data?.games.map((game: Game) => (
-          <div>
-              <GameDisplay game={game} key={game.id} />
-          </div>
+        <GameDisplay game={game} key={game.id} />
       ))}
     </>
   );
