@@ -5,7 +5,6 @@
 const MILLISECONDS = 1000;
 
 export function convertEpochSeconds(epochSeconds: number): string {
-    const seconds = new Date(1504656000 * MILLISECONDS).toDateString();
-    return seconds;
+    return new Date(epochSeconds * MILLISECONDS).toDateString();
 }
 
