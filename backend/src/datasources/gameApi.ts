@@ -2,6 +2,7 @@ import { AugmentedRequest, RESTDataSource } from "@apollo/datasource-rest";
 import * as dotenv from "dotenv";
 dotenv.config()
 
+// TODO: Create genre LUT for genre ID to genre name conversion
 export class GameAPI extends RESTDataSource {
     override baseURL = "https://api.igdb.com/v4/";
     override willSendRequest(_, requestOpts: AugmentedRequest) {
