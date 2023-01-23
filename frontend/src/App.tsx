@@ -11,6 +11,10 @@ export default function App() {
       name
       publisher
       releaseDate
+      genres {
+        id
+        name
+      }
     }
   }
   `;
