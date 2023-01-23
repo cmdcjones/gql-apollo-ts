@@ -11,7 +11,7 @@ export default function GameDisplay({ game }: Props) {
         <p>Publisher: {game.publisher}</p>
         <p>Release Date: {game.releaseDate}</p>
         <p>Genres: {game.genres.map((genre, index, array) => (
-          index === array.length-1 ? <span>{genre.name}</span> : <span>{genre.name}, </span> 
+          index === array.length-1 ? <span key={index}>{genre.name}</span> : <span key={index}>{genre.name}, </span> 
           ))}
         </p>
       </div>
