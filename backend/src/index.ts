@@ -12,6 +12,7 @@ const server = new ApolloServer({
 startStandaloneServer(server, {
     listen: { port: 4000 },
     // create context to share datasources to resolvers
+    // TODO: integrate cache (maybe)
     context: async () => {
         return {
             dataSources: {
@@ -22,3 +23,4 @@ startStandaloneServer(server, {
 }).then(({ url }) => console.log(`Apollo Server ready at: ${url}`));
 
 // TODO: transition schema to .graphql to leverage graphql type codegen
+// would be much easier than manually implementing types....

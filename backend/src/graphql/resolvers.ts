@@ -1,5 +1,6 @@
 import { convertEpochSeconds } from "../utils";
 
+// TODO: change query and resolvers to *actually* get all games
 export const resolvers = {
     Query: {
         games: (_, __, { dataSources }) => {

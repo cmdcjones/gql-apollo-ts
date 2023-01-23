@@ -1,3 +1,5 @@
+// TODO: change query and resolvers to *actually* get all games
+
 export const typeDefs = `#graphql
 type Query {
     "Get a non-null list of non-null Game objects"
