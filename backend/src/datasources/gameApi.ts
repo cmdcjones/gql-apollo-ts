@@ -19,4 +19,18 @@ export class GameAPI extends RESTDataSource {
         const [{ id: _, name: publisherName }] = await this.post("companies", { body: `fields name; where developed=[${gameId}];` });
         return publisherName;
     }
+
+    async getGenres(listOfIds: Array<number>): Promise<any> {
+        let query = 'fields name; where ';
+
+        for (let i=0;i<listOfIds.length;i++) {
+            if (i===listOfIds.length-1) {
+                query += `id=${listOfIds[i]};`;
+            } else {
+                query += `id=${listOfIds[i]}|`;
+            }
+        }
+
+        return this.post("genres", { body: query });
+    }
 }

@@ -14,6 +14,9 @@ export const resolvers = {
         releaseDate: ({ first_release_date }) => {
             return convertEpochSeconds(first_release_date);
         },
+        genres: ({ genres }, __, { dataSources }) => {
+            return dataSources.gameAPI.getGenres(genres);
+        },
     },
 }
 

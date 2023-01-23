@@ -9,11 +9,12 @@ type Game {
     name: String!
     publisher: String!
     releaseDate: String!
+    genres: [Genre]
 }
 
 type Genre {
-    categories: [String!]!
+    id: Int!
+    name: String!
 }
-
 `
 
