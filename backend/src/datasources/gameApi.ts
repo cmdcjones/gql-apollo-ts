@@ -10,8 +10,7 @@ export class GameAPI extends RESTDataSource {
         requestOpts.headers["Authorization"] = process.env.AUTHORIZATION_HEADER;
     }
 
-    // TODO: remove hard coding, create more 'functional' function
-    async getDestiny2(name = "Destiny 2"): Promise<any> {
+    async getGameByName(name: string): Promise<any> {
         return this.post("games", { body: `fields *; where name="${name}";` });
     }
 

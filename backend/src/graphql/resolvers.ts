@@ -3,8 +3,8 @@ import { convertEpochSeconds } from "../utils";
 // TODO: change query and resolvers to *actually* get all games
 export const resolvers = {
     Query: {
-        games: (_, __, { dataSources }) => {
-            return dataSources.gameAPI.getDestiny2();
+        game: (_, args, { dataSources }) => {
+            return dataSources.gameAPI.getGameByName(args.name);
         },
     },
     // Implement Game type with publisher field to resolve parent publisher field
