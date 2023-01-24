@@ -8,8 +8,8 @@ export default function App() {
   const [search, setSearch] = useState("");
 
   const GAMES = gql`
-  query GetGames {
-    games {
+  query GetGame($name: String!) {
+    game(name: $name) {
       id
       name
       publisher
@@ -24,12 +24,9 @@ export default function App() {
 
   const [getGame, { loading, error, data }] = useLazyQuery(GAMES);
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
-
   function handleGameSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    getGame();
+    getGame({ variables: { name: search }});
     setSearch("");
   }
 
@@ -50,7 +47,7 @@ export default function App() {
       { loading ? "Loading..." :
         error ? `Error...` :
       <div>
-        {data?.games.map((game: Game) => (
+        {data?.game.map((game: Game) => (
           <GameDisplay game={game} key={game.id} />
         ))}
       </div> }
