@@ -1,3 +1,4 @@
+// TODO: Implement useLazyQuery from apollo-client for query on event
 import { useQuery, gql } from "@apollo/client";
 import { Game } from "./types";
 import GameDisplay from "./components/GameDisplay";
