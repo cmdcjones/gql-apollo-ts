@@ -15,7 +15,7 @@ export class GameAPI extends RESTDataSource {
     }
 
     async getPublisher(gameId: number): Promise<any> {
-        const [{ id: _, name: publisherName }] = await this.post("companies", { body: `fields name; where developed=[${gameId}];` });
+        const [{ name: publisherName }] = await this.post("companies", { body: `fields name; where developed=[${gameId}];` });
         return publisherName;
     }
 
