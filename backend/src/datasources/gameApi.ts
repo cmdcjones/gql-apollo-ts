@@ -14,6 +14,7 @@ export class GameAPI extends RESTDataSource {
         return this.post("games", { body: `fields *; where name="${name}";` });
     }
 
+    // TODO: fix function in case of multiple game ID's returned from request
     async getPublisher(gameId: number): Promise<any> {
         const [{ name: publisherName }] = await this.post("companies", { body: `fields name; where developed=[${gameId}];` });
         return publisherName;
