@@ -11,13 +11,17 @@ export class GameAPI extends RESTDataSource {
     }
 
     async getGameByName(name: string): Promise<any> {
-        return this.post("games", { body: `fields *; where name="${name}";` });
+        return this.post("games", { body: `fields name, genres, first_release_date; where name="${name}";` });
     }
 
-    // TODO: fix function in case of multiple game ID's returned from request
     async getPublisher(gameId: number): Promise<any> {
-        const [{ name: publisherName }] = await this.post("companies", { body: `fields name; where developed=[${gameId}];` });
-        return publisherName;
+        const [ response ] = await this.post("companies", { body: `fields name; where developed=[${gameId}];` });
+        if (response) {
+            const publisherName = response.name;
+            return publisherName;
+        } else {
+            return "No publisher data returned.";
+        }
     }
 
     async getGenres(listOfIds: Array<number>): Promise<any> {
