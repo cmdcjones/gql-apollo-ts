@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 dotenv.config()
 
 // TODO: Create genre LUT for genre ID to genre name conversion (would be more optimized)
+// implement error handling types through GraphQL
 export class GameAPI extends RESTDataSource {
     override baseURL = "https://api.igdb.com/v4/";
     override willSendRequest(_, requestOpts: AugmentedRequest) {
@@ -25,7 +26,7 @@ export class GameAPI extends RESTDataSource {
     }
 
     async getGenres(listOfIds: Array<number>): Promise<any> {
-        let query = 'fields name; where ';
+        let query = "fields name; where ";
 
         for (let i=0;i<listOfIds.length;i++) {
             if (i===listOfIds.length-1) {
