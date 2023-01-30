@@ -3,3 +3,9 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 }
+
+.main {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}

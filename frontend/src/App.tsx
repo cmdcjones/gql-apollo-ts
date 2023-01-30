@@ -31,7 +31,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="main">
       <h1>Video Game Search Engine</h1>
       <div>
         <form onSubmit={(e) => handleGameSubmit(e)}>
