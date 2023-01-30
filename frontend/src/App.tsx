@@ -32,6 +32,7 @@ export default function App() {
 
   return (
     <div>
+      <h1>Video Game Search Engine</h1>
       <div>
         <form onSubmit={(e) => handleGameSubmit(e)}>
           <label htmlFor="searchGame">Search for a game: </label>
@@ -44,8 +45,8 @@ export default function App() {
           <button onClick={() => getGame}>Search!</button>
         </form>
       </div>
-      { loading ? "Loading..." :
-        error ? `Error...` :
+      { loading ? <p>Loading...</p> :
+      error ? <p>{`Error... ${error.message}`}</p> :
       <div>
         {data?.game.map((game: Game) => (
           <GameDisplay game={game} key={game.id} />
